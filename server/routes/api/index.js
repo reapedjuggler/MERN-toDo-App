@@ -15,7 +15,7 @@ route.get('/todos', async (req, res, next) => {
 
 
 route.use('/create', require('./addTodo').route);
-route.use('/delete', require('./deleteTodo').route);
+route.use('/delete/:id', require('./deleteTodo').route);
 
 module.exports = exports = {
     route,
