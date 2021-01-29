@@ -13,11 +13,11 @@
 //             <input type = "text"
 //                 value = {action} onChange={adddToDo} value = {action}
 //             />
-//         </div>
+//         </div>   
 //     )
 // }
 
-import React from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 
 class Input extends Component {
@@ -34,7 +34,7 @@ class Input extends Component {
 
         if (task.action && task.action.length > 0) {
 
-            axios.post('/api/todos', task) // API's endpoint
+            axios.post('http://localhost:8001/api/todos', task) // API's endpoint
                 .then(res => {
                     if (res.data) {
                         this.props.getTodos();
@@ -61,23 +61,20 @@ class Input extends Component {
 
         return (
             <div>
-                <Input 
+                <input 
                     type = "text"
                     onChange = {this.handleChange}
                     value = {action}  
                 />
 
-                <button>
-                    onClick = {() => this.addTodo()}
+                <button onClick = {() => this.addTodo()}>
+                    Add Todo
                 </button>
-                Add Todo
             </div>
         )
 
     }
 
 }
-
-
 
 export default Input;

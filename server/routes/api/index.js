@@ -3,13 +3,16 @@ const Todo = require('../../models/Todo');
 
 route.get('/todos', async (req, res, next) => {
 
+    console.log("\n\nReached get request\n\n")
+
     try {
-       await Todo.find({}, 'action');
+       let data = await Todo.find({}, 'action');
        console.log("Displayed\n");
-       res.send(data);
+       console.log(data, " \n\niam data\n\n");
+       res.json(data);
     } catch (err) {
         console.error("No object");
-        res.send("empty");
+        res.send("Field is empty");
     }
 });
 

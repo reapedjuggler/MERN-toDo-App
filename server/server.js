@@ -7,7 +7,7 @@ const cors = require('cors');
 const app = express();
 
 var corsOptions = {
-    origin: 'http://localhost:6000'
+    origin: 'http://localhost:3000'
 };
 
 app.use(cors(corsOptions));
@@ -16,6 +16,6 @@ app.use(express.urlencoded({extennded: true}));
 
 app.use('/api', require('./routes/api').route);
 
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 8001;
 
-app.listen(PORT, () => console.log("Server started on https://localhost:8000"));
+app.listen(PORT, () => console.log("Server started on https://localhost:8001"));

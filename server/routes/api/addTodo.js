@@ -11,14 +11,18 @@ route.post('/', async (req, res, next) => {
 
         console.log(task, " \n, iam task\n\n");
 
+        if (req.body.action.length <= 0) {
+            res.send('Empty Field ');
+        }
+
         try {
-            await task.save();
+            let data = await task.save();
             console.log("Todo Assigned");
-            res.send("congo");
+            res.send(data);
 
         } catch (err) {
             console.log(" Error in Posting Todo \n", err);
-            res.send("ooooops");
+            res.send("Field is empty");
         }
 });
 
