@@ -21,6 +21,7 @@ class Todo extends Component {
     }    
     
     getTodos = () => {
+        console.log("End point hit\n");
         axios.get('http://localhost:8001/api/todos')
         .then((res) => {
             if (res.data) {
@@ -43,13 +44,15 @@ class Todo extends Component {
 
     render() {
 
-        let todos = this.state;
+        const {todos} = this.state;
+
+        console.log(todos, "   iam todosssssssssssssssss");
 
         return (
             <div>
                 <h1>Todos</h1>
 
-                <Input />
+                <Input getTodos = {this.getTodos} />
                 <List todos = {todos} deleteTodo = {this.deleteTodo}></List>
 
             </div>

@@ -11,7 +11,7 @@ route.get('/todos', async (req, res, next) => {
        console.log(data, " \n\niam data\n\n");
        res.json(data);
     } catch (err) {
-        console.error("No object");
+        console.error("No object\n\n", err);
         res.send("Field is empty");
     }
 });

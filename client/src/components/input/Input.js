@@ -32,9 +32,11 @@ class Input extends Component {
             action: this.state.action
         };
 
+        console.log(" \n\nin task\n\n");
+
         if (task.action && task.action.length > 0) {
 
-            axios.post('http://localhost:8001/api/todos', task) // API's endpoint
+            axios.post('http://localhost:8001/api/create', task) // API's endpoint
                 .then(res => {
                     if (res.data) {
                         this.props.getTodos();
@@ -61,7 +63,7 @@ class Input extends Component {
 
         return (
             <div>
-                <input 
+                <input                  // Wrote here Input which was causing a infinte loop REMEMBER
                     type = "text"
                     onChange = {this.handleChange}
                     value = {action}  

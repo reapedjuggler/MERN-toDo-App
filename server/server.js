@@ -1,3 +1,5 @@
+// One day all this grind will pay, keep working come what may!
+
 const express = require('express');
 const path = require('path');
 const db = require('./db');

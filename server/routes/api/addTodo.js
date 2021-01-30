@@ -9,11 +9,7 @@ route.post('/', async (req, res, next) => {
             action: req.body.action,
         })
 
-        console.log(task, " \n, iam task\n\n");
-
-        if (req.body.action.length <= 0) {
-            res.send('Empty Field ');
-        }
+        console.log("\n\ninside post\n\n");
 
         try {
             let data = await task.save();
