@@ -32,8 +32,6 @@ class Input extends Component {
             action: this.state.action
         };
 
-        console.log(" \n\nin task\n\n");
-
         if (task.action && task.action.length > 0) {
 
             axios.post('http://localhost:8001/api/create', task) // API's endpoint

@@ -2,21 +2,24 @@ import React from 'react';
 
 const List = ({todos, deleteTodo}) => {
 
-    console.log("\n", todos, "  " , todos.length, "  iam todos in delete\n\n");
-
-    for (let i = 0; i < todos.length; i++) {
-        console.log("\n", i + " obito", todos[i], "\n");
-    }
+    let cnt = 0;
 
     return (
         <ul>
             {
                 (todos && todos.length) ?
 
-                todos.map((todo) => <li key = {todo._id}> {todo.action} </li>)
-                
-                : 
-                
+                todos.map((todo) => 
+                         
+                          <div><li key = {todo._id}>  {todo.action} </li> 
+
+                          <button key = {cnt++} onClick={() => deleteTodo(todo._id)}>
+                              Delete Todo
+                          </button> 
+                          
+                          <p></p> 
+                          </div>)
+                :                 
                 <li>Empty, Add some work!</li>
 
             }
